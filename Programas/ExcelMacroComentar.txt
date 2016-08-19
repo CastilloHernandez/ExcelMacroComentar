@@ -1,0 +1,16 @@
+Sub ComentarCeldas()
+    Dim sComentario As String
+    Dim rCelda As Range
+    
+    sComentario = InputBox("Comentario? (En caso de ya tener uno se sobreescribira)", "ComentarCeldas")
+    
+    For Each rCelda In Selection.Cells
+        If Len(rCelda.Value) Then
+            If rCelda.Comment Is Nothing Then
+                rCelda.AddComment (sComentario)
+            Else
+                rCelda.Comment.Text (sComentario)
+            End If
+        End If
+    Next rCelda
+End Sub
